@@ -11,21 +11,34 @@ export function useAlertas({ atualizarSozinho = false } = {}) {
   const [carregando, setCarregando] = useState(true)
   const [erro, setErro] = useState(null)
 
+  // silencioso = true atualiza a lista sem mostrar o indicador de carregamento
   const carregar = useCallback(async ({ silencioso = false } = {}) => {
-    if (!silencioso) setCarregando(true)
-    setErro(null)
+    if (!silencioso) {
+      setCarregando(true)
+      setErro(null)
+    }
     try {
       setAlertas(await alertasService.listar())
+      setErro(null)
     } catch (e) {
       setErro(e.message)
     } finally {
-      if (!silencioso) setCarregando(false)
+      setCarregando(false)
     }
   }, [])
 
+  // Primeira carga ao abrir a tela. "ativo" evita atualizar o estado depois que a página foi fechada.
   useEffect(() => {
-    carregar()
-  }, [carregar])
+    let ativo = true
+    alertasService
+      .listar()
+      .then((lista) => ativo && setAlertas(lista))
+      .catch((e) => ativo && setErro(e.message))
+      .finally(() => ativo && setCarregando(false))
+    return () => {
+      ativo = false
+    }
+  }, [])
 
   // Atualização automática, usada no painel de alertas
   useEffect(() => {

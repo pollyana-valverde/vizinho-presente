@@ -14,6 +14,7 @@ export function useVoluntarios() {
     try {
       const lista = await voluntariosService.listar()
       setVoluntarios(lista.sort((a, b) => a.nome.localeCompare(b.nome)))
+      setErro(null)
     } catch (e) {
       setErro(e.message)
     } finally {
@@ -21,10 +22,19 @@ export function useVoluntarios() {
     }
   }, [])
 
-  // Busca os dados assim que a tela abre
+  // Busca os dados assim que a tela abre. A variável "ativo" evita atualizar
+  // o estado se a pessoa sair da página antes da resposta chegar.
   useEffect(() => {
-    carregar()
-  }, [carregar])
+    let ativo = true
+    voluntariosService
+      .listar()
+      .then((lista) => ativo && setVoluntarios(lista.sort((a, b) => a.nome.localeCompare(b.nome))))
+      .catch((e) => ativo && setErro(e.message))
+      .finally(() => ativo && setCarregando(false))
+    return () => {
+      ativo = false
+    }
+  }, [])
 
   async function criar(dados) {
     const novo = await voluntariosService.criar({ ...dados, ativo: true })

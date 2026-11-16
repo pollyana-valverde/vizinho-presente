@@ -1,11 +1,13 @@
 import Botao from './Botao'
 import SeloNivel from './SeloNivel'
+import { useRelogio } from '../hooks/useRelogio'
 import { STATUS, minutosEntre } from '../utils/regras'
 import { formatarDataHora, formatarDuracao } from '../utils/formatadores'
 
 // Cartão de um alerta. As ações mudam conforme a etapa do atendimento.
 export default function CartaoAlerta({ alerta, aoAssumir, aoRegistrarVisita, aoLiberar, aoExcluir }) {
-  const tempoAberto = minutosEntre(alerta.abertoEm, alerta.atendidoEm || new Date())
+  const agora = useRelogio()
+  const tempoAberto = minutosEntre(alerta.abertoEm, alerta.atendidoEm || agora)
   const urgente = alerta.status !== 'atendido' && alerta.nivel === 'ajuda'
 
   return (
