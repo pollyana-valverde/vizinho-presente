@@ -28,6 +28,9 @@ export function useFormulario(valoresIniciais, validar) {
     try {
       await aoEnviar(valores)
       return true
+    } catch {
+      // A mensagem de erro já é mostrada por quem chamou; aqui só avisamos que não deu certo
+      return false
     } finally {
       setEnviando(false)
     }

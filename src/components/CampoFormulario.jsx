@@ -1,6 +1,6 @@
 // Campo com rótulo, dica e mensagem de erro ligados ao input (acessível para leitores de tela).
-// Use opcoes={[...]} para virar uma lista de seleção.
-export default function CampoFormulario({ id, rotulo, erro, dica, opcoes, ...props }) {
+// Use opcoes={[...]} para virar uma lista de seleção ou multilinha para texto longo.
+export default function CampoFormulario({ id, rotulo, erro, dica, opcoes, multilinha, ...props }) {
   const idDica = dica ? `${id}-dica` : undefined
   const idErro = erro ? `${id}-erro` : undefined
   const classes = `mt-1 w-full rounded-xl border-2 bg-white px-4 py-3 text-base ${
@@ -26,6 +26,8 @@ export default function CampoFormulario({ id, rotulo, erro, dica, opcoes, ...pro
             </option>
           ))}
         </select>
+      ) : multilinha ? (
+        <textarea id={id} rows={4} className={classes} aria-invalid={Boolean(erro)} aria-describedby={idErro || idDica} {...props} />
       ) : (
         <input id={id} className={classes} aria-invalid={Boolean(erro)} aria-describedby={idErro || idDica} {...props} />
       )}
