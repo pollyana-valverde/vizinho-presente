@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom'
 import Cabecalho from './components/Cabecalho'
 import Rodape from './components/Rodape'
 import Alertas from './pages/Alertas'
+import Historico from './pages/Historico'
+import Inicio from './pages/Inicio'
 import Voluntarios from './pages/Voluntarios'
 
 function Temporaria({ titulo }) {
@@ -18,10 +20,10 @@ export default function App() {
       <Cabecalho />
       <main id="conteudo" className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
         <Routes>
-          <Route path="/" element={<Temporaria titulo="Início" />} />
+          <Route path="/" element={<Inicio />} />
           <Route path="/alertas" element={<Alertas />} />
           <Route path="/voluntarios" element={<Voluntarios />} />
-          <Route path="/historico" element={<Temporaria titulo="Histórico" />} />
+          <Route path="/historico" element={<Historico />} />
           <Route path="/sobre" element={<Temporaria titulo="Sobre" />} />
         </Routes>
       </main>
