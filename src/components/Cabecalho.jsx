@@ -30,7 +30,7 @@ export default function Cabecalho() {
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
         <Link to="/" className="flex items-center gap-3" onClick={() => setMenuAberto(false)}>
           <Logo />
-          <span className="text-xl font-bold">Vizinho Presente</span>
+          <span className="text-lg font-bold sm:text-xl">Vizinho Presente</span>
         </Link>
 
         <button
