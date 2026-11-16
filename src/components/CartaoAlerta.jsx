@@ -2,7 +2,7 @@ import Botao from './Botao'
 import SeloNivel from './SeloNivel'
 import { useRelogio } from '../hooks/useRelogio'
 import { STATUS, minutosEntre } from '../utils/regras'
-import { formatarDataHora, formatarDuracao } from '../utils/formatadores'
+import { formatarDataHora, formatarDuracao, formatarTemperatura } from '../utils/formatadores'
 
 // Cartão de um alerta. As ações mudam conforme a etapa do atendimento.
 export default function CartaoAlerta({ alerta, aoAssumir, aoRegistrarVisita, aoLiberar, aoExcluir }) {
@@ -27,7 +27,7 @@ export default function CartaoAlerta({ alerta, aoAssumir, aoRegistrarVisita, aoL
       <dl className="grid grid-cols-3 gap-2 text-sm">
         <div>
           <dt className="text-suave">Temperatura</dt>
-          <dd className="text-lg font-bold">{alerta.temperatura} °C</dd>
+          <dd className="text-lg font-bold">{formatarTemperatura(alerta.temperatura)}</dd>
         </div>
         <div>
           <dt className="text-suave">Aberto em</dt>
