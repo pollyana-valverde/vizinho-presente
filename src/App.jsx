@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Cabecalho from './components/Cabecalho'
 import Rodape from './components/Rodape'
+import Voluntarios from './pages/Voluntarios'
 
 function Temporaria({ titulo }) {
   return <h1 className="text-3xl font-bold">{titulo}</h1>
@@ -18,7 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Temporaria titulo="Início" />} />
           <Route path="/alertas" element={<Temporaria titulo="Alertas" />} />
-          <Route path="/voluntarios" element={<Temporaria titulo="Voluntários" />} />
+          <Route path="/voluntarios" element={<Voluntarios />} />
           <Route path="/historico" element={<Temporaria titulo="Histórico" />} />
           <Route path="/sobre" element={<Temporaria titulo="Sobre" />} />
         </Routes>
