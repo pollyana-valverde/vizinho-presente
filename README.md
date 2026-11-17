@@ -108,13 +108,11 @@ cd vizinho-presente
 # 2. Instalar as dependências
 npm install
 
-# 3. Criar o arquivo .env a partir do modelo e colar o endereço do MockAPI
-cp .env.example .env
-# abra o .env e preencha: VITE_API_URL=https://SEU_CODIGO.mockapi.io/api/v1
-
-# 4. Rodar em modo de desenvolvimento
+# 3. Rodar em modo de desenvolvimento
 npm run dev
 ```
+
+O arquivo `.env` já vem configurado com a API da equipe. Para usar outra API do MockAPI, troque o valor de `VITE_API_URL` no `.env` (o modelo está em `.env.example`).
 
 Depois, abra o endereço que aparecer no terminal (normalmente http://localhost:5173).
 
@@ -131,8 +129,8 @@ Para ter dados de demonstração, abra a página **Sobre** e clique em **Carrega
 ## Como publicar na Vercel
 
 1. Importe o repositório do GitHub na Vercel.
-2. Em **Environment Variables**, crie `VITE_API_URL` com o endereço do MockAPI.
-3. Clique em **Deploy**. O arquivo `vercel.json` já faz as rotas do React funcionarem ao recarregar a página.
+2. Clique em **Deploy**. O endereço da API já está no arquivo `.env`.
+3. Se quiser usar outra API, crie a variável `VITE_API_URL` em **Environment Variables**. O arquivo `vercel.json` já faz as rotas do React funcionarem ao recarregar a página.
 
 ## Organização do código
 
