@@ -15,8 +15,8 @@ O mesmo projeto é entregue nas disciplinas **Front-end Design** e **Web Develop
 | Problema, em uma frase | Quando um temporal do El Niño derruba a energia em dias de calor, idosos que moram sozinhos ficam sem ventilação e sem ter como pedir ajuda, e ninguém percebe a tempo. |
 | Como funciona | Um aparelho simples na casa do idoso percebe quando a luz acaba e mede a temperatura. O idoso aperta um botão "estou bem" para avisar que está tudo certo. Se faltar luz, a casa esquentar e ninguém apertar o botão, os vizinhos voluntários recebem um alerta no site e um deles vai até lá fazer a visita. |
 | O que cada parte faz | **Sensor (Edge):** percebe a falta de luz e o calor e decide o nível de alerta. **Lógica (Python):** organiza o cadastro de idosos e voluntários e o histórico de visitas. **Matemática:** calcula em quanto tempo a casa fica quente demais. **Interface e Interação (este site):** onde voluntários veem os alertas e registram as visitas. **Experiência:** jornada, requisitos e protótipo. **Pitch:** o vídeo que conta a história. |
-| Link do repositório | [preencher com o link do GitHub] |
-| Link do site publicado | [preencher com o link da Vercel] |
+| Link do repositório | https://github.com/pollyana-valverde/vizinho-presente |
+| Link do site publicado | https://vizinho-presente.vercel.app |
 | Indicador de impacto | Tempo entre o alerta e a visita do voluntário (meta: até 30 minutos) e porcentagem de alertas atendidos dentro da meta. Os dois aparecem na página Histórico. |
 | ODS conectados | ODS 3 (Saúde e bem-estar), ODS 10 (Redução das desigualdades), ODS 11 (Cidades e comunidades sustentáveis), ODS 13 (Ação contra a mudança global do clima). |
 
